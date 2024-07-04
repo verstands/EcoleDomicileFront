@@ -11,7 +11,7 @@ export default {
         "dark-1" : "#09090A"
       }
     },
+    darkMode: ['class']
   },
   plugins: [],
 }
-
