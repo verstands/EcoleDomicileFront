@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from '../Pages/Home/Home'
-import LayoutSite from '../components/LayoutSite'
+import Layout from '../components/Layout'
 
 
 const IndexRoute = () => {
   return (
     <Routes>
-        <Route element={<LayoutSite />}>
+        <Route element={<Layout />}>
             <Route path='/' element={<Home />}></Route>
         </Route>
      </Routes>
