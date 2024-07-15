@@ -3,17 +3,8 @@ import { Outlet } from 'react-router-dom'
 
 const LayoutSite = () => {
   const [active, setActive] = useState(false)
-  const [openSidbar, setAsetOpensidebar] = useState(false)
 
-  if(typeof window !== undefined){
-    window.addEventListener("scroll", () => {
-        if(window.scrollY > 80){
-            setActive(true)
-        }else{
-            setActive(false)
-        }
-    })
-  }
+  
 
   return (
     <div className={`${active ? 

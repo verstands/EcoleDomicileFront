@@ -1,4 +1,5 @@
-import IndexRoute from "./routes/IndexRoute"
+import IndexRoute from "./routes/routes"
+
 
 function App() {
 
