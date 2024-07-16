@@ -8,13 +8,14 @@ import Encadrement from '../Pages/Encadrement/Encadrement'
 import OptionFinaliste from '../Pages/OptionFinaliste/OptionFinaliste'
 import QuizMaison from '../Pages/QuizMaison/QuizMaison'
 import EncadrementSpecial from '../Pages/EncadrementFormation/EncadrementSpecial'
+import Login from '../Pages/Login/Login'
 
 
 const IndexRoute = () => {
   return (
     <Routes>
         <Route element={<Layout />}>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/dashboard' element={<Home />}></Route>
             <Route path='/gestionclasse' element={<GestionClasse />}></Route>
             <Route path='/gestionetudiant' element={<GestionEtudiant />}></Route>
             <Route path='/suiviscolaire' element={<SuiviScolaire />}></Route>
@@ -23,6 +24,8 @@ const IndexRoute = () => {
             <Route path='/quizmaison' element={<QuizMaison />}></Route>
             <Route path='/Endrementformation' element={<EncadrementSpecial />}></Route>
         </Route>
+        <Route path='/' element={<Login />}></Route>
+
      </Routes>
   )
 }

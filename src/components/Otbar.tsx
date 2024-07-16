@@ -3,7 +3,11 @@ import { BiBell } from "react-icons/bi";
 import { FaArrowRight, FaBars, FaSearch, FaSignInAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Otbar = ({ onSidebarToggle }) => {
+
+interface OtbarProps {
+  onSidebarToggle: () => void;
+}
+const Otbar = ({ onSidebarToggle }: OtbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
