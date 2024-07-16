@@ -14,4 +14,4 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quidem,
   )
 }
 
-export default Home
+export default Home 

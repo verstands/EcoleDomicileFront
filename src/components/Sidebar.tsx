@@ -8,15 +8,15 @@ const Sidebar = () => {
         <>
             <div></div>
             <div className='bg-dark-theme p-2 h-24 flex bg-[#0476e8] rounded-tr-[50px] items-center bg gap-2 justify-center'>
-                <FaUserCircle size={50} />
+                <FaUserCircle size={50} color='white' />
                 <div>
-                    <p className='font-bold'>Rabby Kikwele</p>
-                    <p className="text-[12px]">Professeur</p>
+                    <p className='font-bold text-white'>Rabby Kikwele</p>
+                    <p className="text-[12px] text-white">Professeur</p>
                 </div>
             </div>
             <hr className='pb-2 bg-[#0476e8]' />
             <div className='h-screen px-[50px] bg-[#0476e8] '>
-                <div className='flex items-center  gap-[15px] py-[15px] border border-[#fc9401] bg-[#fc9401] p-2 w-full rounded-xl'>
+                <div className='flex items-center  gap-[15px] py-[15px] border border-[#fc9401] bg-[#fc9401] p-2 w-full rounded-xl font-bold'>
                     <FaHome color='#ffffff' size={20} />
                     <Link to='/' className='text-[12px] leading-[20px]  text-white'>Tableau de bord</Link>
                 </div>
