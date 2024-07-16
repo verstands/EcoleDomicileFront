@@ -20,7 +20,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabChange }) => {
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`px-4 py-2 rounded-md ${activeTab === tab.label ? "bg-gray-200" : "bg-white"}`}
+            className={`px-4 py-2 rounded-md ${activeTab === tab.label ? "bg-[#fc9401] text-white" : "bg-white border border-gray-400"}`}
             onClick={() => onTabChange(tab.label)}
           >
             {tab.icon && <span className="mr-2">{tab.icon}</span>}
