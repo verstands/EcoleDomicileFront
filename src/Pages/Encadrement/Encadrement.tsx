@@ -24,15 +24,15 @@ const Encadrement = () => {
 
       ];
 
-      const [activeTab, setActiveTab] = React.useState("Tuteurs");
+    const [activeTab, setActiveTab] = React.useState("Tuteurs");
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
   return (
     <>
-    <Tabs tabs={tabs} activeTab={activeTab} onTabChange={handleTabChange} />
-</>
+      <Tabs tabs={tabs} activeTab={activeTab} onTabChange={handleTabChange} />
+    </>
   )
 }
 
