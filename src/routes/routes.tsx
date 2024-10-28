@@ -1,32 +1,33 @@
 import { Route, Routes } from 'react-router-dom'
-import Home from '../Pages/Home/Home'
 import Layout from '../components/Layout'
 import GestionClasse from '../Pages/GestionClasse/GestionClasse'
-import GestionEtudiant from '../Pages/GestionEtudiant/GestionEtudiant'
-import SuiviScolaire from '../Pages/SuiviScolaire/SuiviScolaire'
-import Encadrement from '../Pages/Encadrement/Encadrement'
-import OptionFinaliste from '../Pages/OptionFinaliste/OptionFinaliste'
-import QuizMaison from '../Pages/QuizMaison/QuizMaison'
-import EncadrementSpecial from '../Pages/EncadrementFormation/EncadrementSpecial'
 import Login from '../Pages/Login/Login'
+import Dashboard from '../Pages/Dashboard/Dashboard'
+import Pharmacies from '../Pages/Pharmarcies/Pharmacies'
+import Produit from '../Pages/Produits/Produit'
+import Pays from '../Pages/Pays/Pays'
+import Ville from '../Pages/Ville/Ville'
+import Commune from '../Pages/Commune/Commune'
+import Quartier from '../Pages/quartier/Quartier'
 
 
 const IndexRoute = () => {
   return (
     <Routes>
-        <Route element={<Layout />}>
-            <Route path='/dashboard' element={<Home />}></Route>
-            <Route path='/gestionclasse' element={<GestionClasse />}></Route>
-            <Route path='/gestionetudiant' element={<GestionEtudiant />}></Route>
-            <Route path='/suiviscolaire' element={<SuiviScolaire />}></Route>
-            <Route path='/encadrementformation' element={<Encadrement />}></Route>
-            <Route path='/optionfinalite' element={<OptionFinaliste />}></Route>
-            <Route path='/quizmaison' element={<QuizMaison />}></Route>
-            <Route path='/Endrementformation' element={<EncadrementSpecial />}></Route>
-        </Route>
-        <Route path='/' element={<Login />}></Route>
+      <Route element={<Layout />}>
+        <Route path='/gestionclasse' element={<GestionClasse />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/pharmacies' element={<Pharmacies />}></Route>
+        <Route path='/produits' element={<Produit />}></Route>
+        <Route path='/pays' element={<Pays />}></Route>
+        <Route path='/ville' element={<Ville />}></Route>
+        <Route path='/commune' element={<Commune />}></Route>
+        <Route path='/quartier' element={<Quartier />}></Route>
+      </Route>
+      <Route path='/' element={<Login />}></Route>
+      <Route path='/*' element={<Login />}></Route>
 
-     </Routes>
+    </Routes>
   )
 }
 

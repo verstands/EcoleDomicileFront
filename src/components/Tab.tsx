@@ -1,36 +1,38 @@
-// components/Tabs.js
 import React from "react";
 
 interface Tab {
-  label: string;
-  icon?: React.ReactNode;
+  id: string; // Unique ID for each tab
+  label: React.ReactNode;
   content: React.ReactNode;
 }
 
 interface TabsProps {
   tabs: Tab[];
   activeTab: string;
-  onTabChange: (tab: string) => void;
+  onTabChange: (tabId: string) => void;
 }
 
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabChange }) => {
   return (
     <>
       <div className="flex gap-2 mb-4">
-        {tabs.map((tab, index) => (
+        {tabs.map((tab) => (
           <button
-            key={index}
-            className={`px-4 py-2 rounded-md ${activeTab === tab.label ? "bg-[#fc9401] text-white" : "bg-white border border-gray-400"}`}
-            onClick={() => onTabChange(tab.label)}
+            key={tab.id}
+            className={`px-4 py-2 rounded-md transition duration-300 ${
+              activeTab === tab.id
+                ? "bg-[#fc9401] text-white"
+                : "bg-white border border-gray-400 hover:bg-gray-100"
+            }`}
+            onClick={() => onTabChange(tab.id)}
           >
-            {tab.icon && <span className="mr-2">{tab.icon}</span>}
             {tab.label}
           </button>
         ))}
       </div>
 
-      {tabs.map((tab, index) => (
-        <div key={index} className={activeTab === tab.label ? "block" : "hidden"}>
+      {tabs.map((tab) => (
+        <div key={tab.id} className={activeTab === tab.id ? "block" : "hidden"}>
           {tab.content}
         </div>
       ))}

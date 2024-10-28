@@ -16,7 +16,7 @@ const Otbar = ({ onSidebarToggle }: OtbarProps) => {
   };
   return (
     <>
-      <div className="flex items-center border border-[#0476e8] bg-[#0476e8] justify-between p-5 shadow-xl ">
+      <div className="flex items-center border border-[#06a9b2] bg-green-700 justify-between p-5 shadow-xl ">
         <div>
           <div className="flex items-center gap-2">
             <div>
@@ -30,8 +30,8 @@ const Otbar = ({ onSidebarToggle }: OtbarProps) => {
                 <FaBars size={20} color="white" onClick={handleMenuToggle} />
               )}
             </div>
-            <img src="ec.jpg" width={50} alt="" />
-            <h2 className="text-[18px] text-white font-bold">Eteyeloap</h2>
+            <img src="a.png" width={50} alt="" />
+            <h2 className="text-[18px] text-white font-bold">Medigo</h2>
           </div>
         </div>
         <div className="flex items-center gap-2">

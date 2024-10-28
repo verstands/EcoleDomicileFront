@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import axiosClient from '../axiosClient';
-import { RepositoryConfigInterface } from '../Interfaces/RepositoryConfig.interface';
+import { RepositoryConfigInterface } from '../interfaces/RepositoryConfig.interface';
 import { toast } from "react-toastify";
 
 
@@ -88,7 +88,7 @@ abstract class Repository<T> {
      });
   }
 
-  updates$(data: any, uri: string): Promise<any> {
+  updates$(data: unknown, uri: string): Promise<unknown> {
     return axiosClient.put(uri, data)
       .then(response => response.data)
       .catch(error => {
