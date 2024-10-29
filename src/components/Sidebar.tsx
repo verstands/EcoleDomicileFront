@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { FaCity, FaCog, FaGlobeAfrica, FaHome, FaHospitalAlt, FaLocationArrow, FaMapMarkerAlt, FaSignInAlt, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
+import { FaCity, FaCog, FaGlobeAfrica, FaHome, FaHospitalAlt, FaLocationArrow, FaMapMarkerAlt, FaSignInAlt, FaSignOutAlt, FaUserCircle, FaUsers } from 'react-icons/fa';
 import { BiPackage } from 'react-icons/bi';
 
 const Sidebar = () => {
@@ -51,9 +51,9 @@ const Sidebar = () => {
                     <FaMapMarkerAlt color='#ffffff' size={20} />
                     <Link to='/quartier' className='text-[15px] leading-[20px]    text-white'>Quartier  </Link>
                 </div>
-                <div className={`flex items-center gap-[15px] py-[15px] ${isActive('/parametre') ? 'border border-[#fc9401] bg-[#fc9401] p-2 w-full rounded-xl font-bold' : ''}`}>
-                    <FaCog color='#ffffff' size={20} />
-                    <Link to='/parametre' className='text-[15px] leading-[20px]    text-white'>Parametres</Link>
+                <div className={`flex items-center gap-[15px] py-[15px] ${isActive('/user') ? 'border border-[#fc9401] bg-[#fc9401] p-2 w-full rounded-xl font-bold' : ''}`}>
+                    <FaUsers color='#ffffff' size={20} />
+                    <Link to='/user' className='text-[15px] leading-[20px]    text-white'>Utilisateurs</Link>
                 </div>
                 <div>
                     <button

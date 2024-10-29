@@ -123,6 +123,7 @@ const QuartierTableau = () => {
                                         </td>
                                         <td className="p-4">
                                             <div className='flex items-center gap-2'>
+                                            
                                                 <button className="border p-2 rounded-lg bg-red-600 text-white border-[#06a9b2]">
                                                     <FaTrash />
                                                 </button>

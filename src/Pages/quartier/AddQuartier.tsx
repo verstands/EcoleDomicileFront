@@ -7,10 +7,6 @@ import { QuartierInterface } from '../../interfaces/QuartierInterface';
 import CommuneService from '../../services/Commune.service';
 import QuartierService from '../../services/Quartier.service';
 import { CommuneInterface } from '../../interfaces/CommuneInterface';
-import { PaysInterface } from '../../interfaces/PaysInterface';
-import { VilleInterface } from '../../interfaces/VilleINterface';
-import PaysService from '../../services/Pays.service';
-import VilleService from '../../services/Ville.service';
 
 const AddQuartier = () => {
     const [data, setdata] = useState<QuartierInterface>({
@@ -18,8 +14,6 @@ const AddQuartier = () => {
         id_commune: ""
     });
     const [dataPays, setDataPays] = useState<CommuneInterface[] | null>(null);
-    const [dataPayss, setDataPayss] = useState<PaysInterface[] | null>(null);
-    const [dataville, setville] = useState<VilleInterface[] | null>(null);
 
     const [loading, setLoading] = useState(false);
 
@@ -30,8 +24,6 @@ const AddQuartier = () => {
 
     const communeService = new CommuneService(config);
     const quartierService = new QuartierService(config);
-    const paysService = new PaysService(config);
-    const villeService = new VilleService(config);
 
 
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -52,19 +44,8 @@ const AddQuartier = () => {
         }
     };
 
-
-    const getPays = async () => {
-        try {
-            const response = await paysService.getPays() as CommuneInterface;
-            setDataPayss(response.data);
-        } catch (error: unknown) {
-            console.error(error);
-        }
-    };
-
     useEffect(() => {
         getCommune();
-        getPays();
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,10 +55,6 @@ const AddQuartier = () => {
             [name]: value,
         }));
     };
-
-    const handleSelectChangePaye = (id: string) => {
-        alert(id)
-    }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -104,90 +81,48 @@ const AddQuartier = () => {
                     <div>
                     </div>
                     <br />
-                    <div>
-                        <label
-                            htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                        >
-                            Nom
-                        </label>
-                        <input
-                            type="text"
-                            name="nom"
-                            id="email"
-                            value={data.nom}
-                            onChange={handleChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        />
+                    <div className="grid md:grid-cols-1 xl:grid-cols-3 gap-2">
+                        <div>
+                            <label
+                                htmlFor="email"
+                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                            >
+                                Nom
+                            </label>
+                            <input
+                                type="text"
+                                name="nom"
+                                id="email"
+                                value={data.nom}
+                                onChange={handleChange}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            />
+                        </div>
                     </div>
+                    <div className="grid md:grid-cols-1 xl:grid-cols-3 gap-2">
+                        <div>
+                            <label
+                                htmlFor="email"
+                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                            >
+                                Commune
+                            </label>
+                            <select name="id_commune" id=""
+                                value={data.id_commune}
+                                onChange={handleSelectChange}
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
 
-                    <div>
-                        <label
-                            htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                        >
-                            Pays
-                        </label>
-                        <select
-                            name="id_commune"
-                            value={data.id_commune}
-                            onChange={(event) => handleSelectChangePaye(event.target.value)} // Passez la valeur sélectionnée
-                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        >
-                            <option value="">Selectionnez un quartier</option>
-                            {
-                                dataPayss?.map((e) => (
-                                    <option key={e.id} value={e.id}>{e.nom}</option>
-                                ))
-                            }
-                        </select>
-                    </div>
-
-                    <div>
-                        <label
-                            htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                        >
-                            Ville
-                        </label>
-                        <select name="id_commune" id=""
-                            value={data.id_commune}
-                            onChange={handleSelectChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-
-                        >
-                            <option value="">Selectionnez un quartier</option>
-                            {
-                                dataPays?.map((e) => {
-                                    return (
-                                        <option value={e.id}>{e.nom}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                        >
-                            Commune
-                        </label>
-                        <select name="id_commune" id=""
-                            value={data.id_commune}
-                            onChange={handleSelectChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-
-                        >
-                            <option value="">Selectionnez un quartier</option>
-                            {
-                                dataPays?.map((e) => {
-                                    return (
-                                        <option value={e.id}>{e.nom}</option>
-                                    )
-                                })
-                            }
-                        </select>
+                            >
+                                <option value="">Selectionnez un quartier</option>
+                                {
+                                    dataPays?.map((e) => {
+                                        return(
+                                            <option value={e.id}>{e.nom}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
                     </div>
                     <br />
                     {

@@ -9,6 +9,7 @@ import Pays from '../Pages/Pays/Pays'
 import Ville from '../Pages/Ville/Ville'
 import Commune from '../Pages/Commune/Commune'
 import Quartier from '../Pages/quartier/Quartier'
+import DetailPharmacie from '../Pages/Pharmarcies/DetailPharmacie'
 
 
 const IndexRoute = () => {
@@ -23,6 +24,7 @@ const IndexRoute = () => {
         <Route path='/ville' element={<Ville />}></Route>
         <Route path='/commune' element={<Commune />}></Route>
         <Route path='/quartier' element={<Quartier />}></Route>
+        <Route path='/pharmacie/details' element={<DetailPharmacie />}></Route>
       </Route>
       <Route path='/' element={<Login />}></Route>
       <Route path='/*' element={<Login />}></Route>

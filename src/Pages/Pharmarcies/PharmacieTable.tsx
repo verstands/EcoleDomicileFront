@@ -3,7 +3,8 @@ import { PharmacieINterface } from '../../interfaces/PharmacieInterface';
 import { RepositoryConfigInterface } from '../../interfaces/RepositoryConfig.interface';
 import PharmacieService from '../../services/Pharmacie.service';
 import SpinnerUjiza from '../../components/SpinnerUjiza';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const PharmacieTable = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -14,6 +15,8 @@ const PharmacieTable = () => {
         appConfig: {},
         dialog: {},
     };
+
+    const navigate = useNavigate();
 
     const pharmacieService = new PharmacieService(config);
 
@@ -35,6 +38,10 @@ const PharmacieTable = () => {
     useEffect(() => {
         getPharmacie();
     }, []);
+
+    const handleViewDetails = (pharmacie: PharmacieINterface) => {
+        navigate('/pharmacie/details', { state: { pharmacie } });
+    };
 
     if (loading) {
         return <center><SpinnerUjiza /></center>;
@@ -89,7 +96,7 @@ const PharmacieTable = () => {
                         <th scope="col" className="px-6 py-3">Nom de la pharmacie</th>
                         <th scope="col" className="px-6 py-3">Téléphone</th>
                         <th scope="col" className="px-6 py-3">Commune</th>
-                        <th scope="col" className="px-6 py-3">Quartier</th>
+
                         <th scope="col" className="px-6 py-3">Action</th>
                     </tr>
                 </thead>
@@ -121,18 +128,18 @@ const PharmacieTable = () => {
                                             {datas.nom}
                                         </td>
                                         <td className="p-4">
-                                            {datas.telephone}
+                                            {datas.commune.nom}
                                         </td>
                                         <td className="p-4">
-                                            {datas.commune}
-                                        </td>
-                                        <td className="p-4">
-                                            {datas.qurtier.nom}
+                                            {datas.qurtier?.nom}
                                         </td>
                                         <td className="p-4">
                                             <div className='flex items-center gap-2'>
-                                                <button className="border p-2 rounded-lg bg-[#06a9b2] text-white border-[#06a9b2]">
+                                                <button className="border p-2 rounded-lg bg-green-600 text-white border-green-600">
                                                     Desactiver
+                                                </button>
+                                                <button onClick={() => handleViewDetails(datas)}>
+                                                    <FaEye />
                                                 </button>
                                             </div>
                                         </td>

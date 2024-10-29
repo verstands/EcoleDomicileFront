@@ -97,10 +97,12 @@ const ProduitTable = () => {
                     {Array.isArray(data) &&
                         data
                             .filter((datas) => {
-                                if (typeof datas.nom !== "string") {
+                                if (typeof datas.nom !== "string" || typeof datas.pharmacie.nom !== "string") {
                                     return false;
                                 }
                                 return datas.nom
+                                    .toLowerCase()
+                                    .includes(searchTerm.toLowerCase()) || datas.pharmacie.nom
                                     .toLowerCase()
                                     .includes(searchTerm.toLowerCase());
                             })
@@ -127,7 +129,7 @@ const ProduitTable = () => {
                                             {datas.prix}
                                         </td>
                                         <td className="p-4">
-                                            {datas.desciption.slice(0, 30)}...
+                                            {datas.description.slice(0, 30)}...
                                         </td>
                                         <td className="p-4">
                                             {datas.pharmacie?.nom}

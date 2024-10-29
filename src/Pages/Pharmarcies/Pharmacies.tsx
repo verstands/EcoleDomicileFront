@@ -2,7 +2,6 @@ import React from 'react';
 import { FaListAlt, FaPlusCircle } from 'react-icons/fa';
 import Tabs from '../../components/Tab';
 import PharmacieTable from './PharmacieTable';
-import AddPharmacie from './AddPharmacie';
 
 const Pharmacies = () => {
   const tabs = [
@@ -24,7 +23,7 @@ const Pharmacies = () => {
           <span>Ajouter une pharmacie</span>
         </div>
       ),
-      content: <AddPharmacie />,
+      content: <p></p>,
     },
   ];
 
